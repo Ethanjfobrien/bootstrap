@@ -16,11 +16,11 @@ encoding:         UTF-8
 # Custom vars
 directory_prefix: /
 current_version:  3.3.1
-repo:             https://github.com/twbs/bootstrap
+repo:             http://ethanjfobrien.github.io/bootstrap-senior
 sass_repo:        https://github.com/twbs/bootstrap-sass
 
 download:
-  source:         https://github.com/twbs/bootstrap/archive/v3.3.1.zip
+  source:         http://ethanjfobrien.github.io/bootstrap-senior/archive/v3.3.1.zip
   dist:           https://github.com/twbs/bootstrap/releases/download/v3.3.1/bootstrap-3.3.1-dist.zip
   sass:           https://github.com/twbs/bootstrap-sass/archive/v3.3.1.tar.gz
 

@@ -3,4 +3,4 @@
 # Allow crawling of all content
 User-agent: *
 Disallow:
-Sitemap: http://ethanjfobrien.github.io/bootstrap-senior/sitemap.xml
+Sitemap: http://ethanjfobrien.github.io/bootstrap-senior//sitemap.xml

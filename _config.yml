@@ -14,7 +14,12 @@ url:              http://ethanjfobrien.github.io/bootstrap-senior/
 encoding:         UTF-8
 
 # Custom vars
-directory_prefix: ""
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      directory_prefix: ../
 current_version:  3.3.1
 repo:             http://ethanjfobrien.github.io/bootstrap-senior
 sass_repo:        https://github.com/twbs/bootstrap-sass

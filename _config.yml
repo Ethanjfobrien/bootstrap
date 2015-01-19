@@ -10,10 +10,11 @@ source:           docs
 destination:      _gh_pages
 host:             0.0.0.0
 port:             9001
-url:              http://getbootstrap.com
+url:              http://ethanjfobrien.github.io/bootstrap-senior
 encoding:         UTF-8
 
 # Custom vars
+directory_prefix: /
 current_version:  3.3.1
 repo:             https://github.com/twbs/bootstrap
 sass_repo:        https://github.com/twbs/bootstrap-sass

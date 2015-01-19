@@ -7,17 +7,17 @@
 
 <title>
   {% if page.layout == "home" %}
-    {{ page.title }} E
+    {{ site.directory_prefix }}{{ page.title }}
   {% else %}
-    {{ page.title }} E &middot; Bootstrap
+    {{ site.directory_prefix }}{{ page.title }} &middot; Bootstrap
   {% endif %}
 </title>
 
 <!-- Bootstrap core CSS -->
 {% if site.github %}
-<link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="{{ site.directory_prefix }}dist/css/bootstrap.min.css" rel="stylesheet">
 {% else %}
-<link href="../dist/css/bootstrap.css" rel="stylesheet">
+<link href="{{ site.directory_prefix }}dist/css/bootstrap.css" rel="stylesheet">
 {% endif %}
 {% if page.slug == "css" or page.slug == "components" or page.slug == "js" %}
   <!-- Optional Bootstrap Theme -->

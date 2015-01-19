@@ -17,16 +17,17 @@
 
 <!-- Bootstrap core CSS -->
 
-<link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="/dist/css/bootstrap.css" rel="stylesheet">
 
 
 
 <!-- Documentation extras -->
 
-<link href="../assets/css/docs.min.css" rel="stylesheet">
+<link href="/assets/css/src/docs.css" rel="stylesheet">
+<link href="/assets/css/src/pygments-manni.css" rel="stylesheet">
 
 <!--[if lt IE 9]><script src="../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-<script src="../assets/js/ie-emulation-modes-warning.js"></script>
+<script src="/assets/js/ie-emulation-modes-warning.js"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
@@ -49,7 +50,7 @@
 
   </head>
   <body>
-    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+    <a id="skippy" class="sr-only sr-only-focusable" href="#content"><div class="container"><span class="skiplink-text">Skip to main content</span></div></a>
 
     <!-- Docs master nav -->
     <header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
@@ -121,7 +122,7 @@
       <h3 id="download-source">Source code</h3>
       <p>Source Less, JavaScript, and font files, along with our docs. <strong>Requires a Less compiler and <a href="#grunt">some setup.</a></strong></p>
       <p>
-        <a href="https://github.com/twbs/bootstrap/archive/v3.3.1.zip" class="btn btn-lg btn-outline" role="button" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download source');">Download source</a>
+        <a href="http://ethanjfobrien.github.io/bootstrap-senior/archive/v3.3.1.zip" class="btn btn-lg btn-outline" role="button" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download source');">Download source</a>
       </p>
     </div>
     <div class="col-sm-4">
@@ -147,6 +148,19 @@
   <h3 id="download-bower">Install with Bower</h3>
   <p>You can also install and manage Bootstrap's Less, CSS, JavaScript, and fonts using <a href="http://bower.io">Bower</a>:</p>
   <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>bower install bootstrap</code></pre></div>
+
+  <h3 id="download-npm">Install with npm</h3>
+  <p>You can also install Bootstrap using <a href="https://www.npmjs.com">npm</a>:</p>
+  <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>npm install bootstrap</code></pre></div>
+  <p><code>require('bootstrap')</code> will load all of Bootstrap's jQuery plugins onto the jQuery object. The <code>bootstrap</code> module itself does not export anything. You can manually load Bootstrap's jQuery plugins individually by loading the <code>/js/*.js</code> files under the package's top-level directory.</p>
+  <p>Bootstrap's <code>package.json</code> contains some additional metadata under the following keys:</p>
+  <ul>
+    <li><code>less</code> - path to Bootstrap's main <a href="http://lesscss.org">Less</a> source file</li>
+    <li><code>style</code> - path to Bootstrap's non-minified CSS that's been precompiled using the default settings (no customization)</li>
+  </ul>
+
+  <h3 id="download-autoprefixer">Autoprefixer required for Less/Sass</h3>
+  <p>Bootstrap uses <a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> to deal with <a href="http://webdesign.about.com/od/css/a/css-vendor-prefixes.htm">CSS vendor prefixes</a>. If you're compiling Bootstrap from its Less/Sass source and not using our Gruntfile, you'll need to integrate Autoprefixer into your build process yourself. If you're using precompiled Bootstrap or using our Gruntfile, you don't need to worry about this because Autoprefixer is already integrated into our Gruntfile.</p>
 </div>
 
 <div class="bs-docs-section">
@@ -156,7 +170,7 @@
 
   <div class="bs-callout bs-callout-warning" id="jquery-required">
     <h4>jQuery required</h4>
-    <p>Please note that <strong>all JavaScript plugins require jQuery</strong> to be included, as shown in the <a href="#template">starter template</a>. <a href="https://github.com/twbs/bootstrap/blob/v3.3.1/bower.json">Consult our <code>bower.json</code></a> to see which versions of jQuery are supported.</p>
+    <p>Please note that <strong>all JavaScript plugins require jQuery</strong> to be included, as shown in the <a href="#template">starter template</a>. <a href="http://ethanjfobrien.github.io/bootstrap-senior/blob/v3.3.1/bower.json">Consult our <code>bower.json</code></a> to see which versions of jQuery are supported.</p>
   </div>
 
   <h2 id="whats-included-precompiled">Precompiled Bootstrap</h2>
@@ -263,7 +277,7 @@ Copy any changes made here over to the README too. -->
     <span class="nt">&lt;h1&gt;</span>Hello, world!<span class="nt">&lt;/h1&gt;</span>
 
     <span class="c">&lt;!-- jQuery (necessary for Bootstrap's JavaScript plugins) --&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
     <span class="c">&lt;!-- Include all compiled plugins (below), or include individual files as needed --&gt;</span>
     <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/bootstrap.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
   <span class="nt">&lt;/body&gt;</span>
@@ -454,7 +468,7 @@ Copy any changes made here over to the README too. -->
   <h1 id="disable-responsive" class="page-header">Disabling responsiveness</h1>
 
   <p class="lead">Bootstrap automatically adapts your pages for various screen sizes.
-    Here's how to disable this feature so your page works like in <a href="../examples/non-responsive/">this non-responsive example</a>.</p>
+    Here's how to disable this feature so your page works like <a href="../examples/non-responsive/">this non-responsive example</a>.</p>
 
   <h3>Steps to disable page responsiveness</h3>
   <ol>
@@ -757,7 +771,7 @@ Copy any changes made here over to the README too. -->
 
 <div class="bs-docs-section">
   <h1 id="license-faqs" class="page-header">License FAQs</h1>
-  <p class="lead">Bootstrap is released under the MIT license and is copyright 2014 Twitter. Boiled down to smaller chunks, it can be described with the following conditions.</p>
+  <p class="lead">Bootstrap is released under the MIT license and is copyright 2015 Twitter. Boiled down to smaller chunks, it can be described with the following conditions.</p>
 
   <h4>It requires you to:</h4>
   <ul>
@@ -787,7 +801,7 @@ Copy any changes made here over to the README too. -->
     <li>Submit changes that you make to Bootstrap back to the Bootstrap project (though such feedback is encouraged)</li>
   </ul>
 
-  <p>The full Bootstrap license is located <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE">in the project repository</a> for more information.</p>
+  <p>The full Bootstrap license is located <a href="http://ethanjfobrien.github.io/bootstrap-senior/blob/master/LICENSE">in the project repository</a> for more information.</p>
 </div>
 
 <div class="bs-docs-section">
@@ -942,7 +956,7 @@ Copy any changes made here over to the README too. -->
     <ul class="bs-docs-footer-links text-muted">
       <li>Currently v3.3.1</li>
       <li>&middot;</li>
-      <li><a href="https://github.com/twbs/bootstrap">GitHub</a></li>
+      <li><a href="http://ethanjfobrien.github.io/bootstrap-senior">GitHub</a></li>
       <li>&middot;</li>
       <li><a href="../getting-started/#examples">Examples</a></li>
       <li>&middot;</li>
@@ -954,9 +968,9 @@ Copy any changes made here over to the README too. -->
       <li>&middot;</li>
       <li><a href="http://blog.getbootstrap.com">Blog</a></li>
       <li>&middot;</li>
-      <li><a href="https://github.com/twbs/bootstrap/issues">Issues</a></li>
+      <li><a href="http://ethanjfobrien.github.io/bootstrap-senior/issues">Issues</a></li>
       <li>&middot;</li>
-      <li><a href="https://github.com/twbs/bootstrap/releases">Releases</a></li>
+      <li><a href="http://ethanjfobrien.github.io/bootstrap-senior/releases">Releases</a></li>
     </ul>
   </div>
 </footer>
@@ -964,14 +978,20 @@ Copy any changes made here over to the README too. -->
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 
-  <script src="../dist/js/bootstrap.min.js"></script>
+  <script src="../dist/js/bootstrap.js"></script>
 
 
 
-  <script src="../assets/js/docs.min.js"></script>
+  
+  <script src="../assets/js/vendor/holder.js"></script>
+  
+  <script src="../assets/js/vendor/ZeroClipboard.min.js"></script>
+  
+  <script src="../assets/js/src/application.js"></script>
+  
 
 
 
